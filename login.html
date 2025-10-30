@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="login-page">
+  <main class="container content">
+    <img src="img/Bras_SG_01.png" alt="Brasão de São Gonçalo" class="brasao brasao-left">
+    <img src="img/Bras_SG_01.png" alt="Brasão de São Gonçalo" class="brasao brasao-right">
+  </main>
+
+  <form action="/action_page.php" method="post">
+    <div class="imgcontainer">
+      <img src="img/Logo_esc_Zumira.png" alt="Logo SENAI" width="120" height="60" class="d-inline-block align-text-top">
+    </div>
+
+    <h2>Login</h2>
+
+    <div class="container">
+      <label for="uname"><b>Usuário</b></label>
+      <input type="text" placeholder="Digite seu usuário" name="uname" required>
+
+      <label for="psw"><b>Senha</b></label>
+      <input type="password" placeholder="Digite sua senha" name="psw" required>
+          
+      <button type="submit">Entrar</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Lembrar-me
+      </label>
+
+      <!-- Botão que retorna à página inicial -->
+      <button type="button" class="cancelbtn" onclick="window.location.href='index.html'">Voltar</button>
+      <span class="psw">Esqueceu a <a href="#">senha?</a></span>
+    </div>
+  </form>
+
+</body>
+</html>

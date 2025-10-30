@@ -1,0 +1,642 @@
+/* ========================================
+   BACKGROUNDS E LAYOUT PRINCIPAL
+   ======================================== */
+
+/* Background da página inicial com imagem da escola */
+body.index-page {
+  background: url('img/img_Escola_01.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  display: flex;          /* permite empurrar o footer para o rodapé */
+  flex-direction: column; /* conteúdo em coluna */
+  min-height: 100vh;      /* ocupa altura total da janela */
+}
+
+/* Overlay transparente para manter a imagem de fundo visível */
+body.index-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* remove a opacidade sobre a imagem de fundo */
+  z-index: -1;
+}
+
+/* Background da página de login com imagem diferente da escola */
+body.login-page {
+  background: url('img/img_Escola_02.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Overlay transparente para manter a imagem de fundo visível no login */
+body.login-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* sem opacidade sobre o background */
+  z-index: -1;
+}
+
+/* Container dos brasões como overlay fixo para não interferir no layout flex */
+body.login-page .content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ========================================
+   FORMULÁRIO DE LOGIN
+   ======================================== */
+
+/* Container principal do formulário de login */
+body.login-page form {
+  border: 10px solid #ddd;
+  border-radius: 50px;
+  background-color: #fff;
+  padding: 60px 90px;
+  width: 500px;
+  height: auto;
+  min-height: 500px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Título do formulário de login */
+body.login-page form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 2.5em;
+}
+
+/* Labels dos campos do formulário */
+body.login-page form label {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Campos de entrada (usuário e senha) */
+body.login-page form input[type="text"],
+body.login-page form input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 12px 0 20px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1.1em;
+}
+
+/* Botão principal de login */
+body.login-page form button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Efeito hover no botão principal */
+body.login-page form button:hover {
+  background-color: #038b5d;
+}
+
+/* Botão de cancelar/voltar */
+body.login-page form .cancelbtn {
+  background-color: #f44336;
+  margin-top: 10px;
+}
+
+/* Container do logo da escola */
+body.login-page .imgcontainer {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Logo da escola no formulário */
+body.login-page .imgcontainer img {
+  width: 150px;
+  height: 75px;
+}
+
+/* Avatar do usuário (não utilizado atualmente) */
+body.login-page img.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* Container interno do formulário */
+body.login-page form .container {
+  padding: 0;
+}
+
+/* Link "Esqueceu a senha?" */
+body.login-page .psw {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Estilo do link de senha */
+body.login-page .psw a {
+  color: #04AA6D;
+  text-decoration: none;
+}
+
+/* Efeito hover no link de senha */
+body.login-page .psw a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVIDADE - FORMULÁRIO DE LOGIN
+   ======================================== */
+
+/* Ajustes para tablets e dispositivos móveis */
+@media screen and (max-width: 768px) {
+  body.login-page form {
+    width: 90%;
+    padding: 40px 30px;
+    margin: 20px;
+  }
+  
+  body.login-page form h2 {
+    font-size: 2em;
+  }
+  
+  body.login-page form label {
+    font-size: 1em;
+  }
+  
+  body.login-page form input[type="text"],
+  body.login-page form input[type="password"] {
+    padding: 12px;
+    font-size: 1em;
+  }
+  
+  body.login-page form button {
+    padding: 12px;
+    font-size: 1em;
+  }
+  
+  /* Brasões menores no login em telas pequenas */
+  body.login-page .brasao {
+    width: 100px;
+    height: 125px;
+  }
+  
+  body.login-page .brasao-left {
+    left: 20px;
+  }
+  
+  body.login-page .brasao-right {
+    right: 20px;
+  }
+}
+
+/* Ajustes para dispositivos móveis pequenos */
+@media screen and (max-width: 480px) {
+  body.login-page form {
+    width: 95%;
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  body.login-page form h2 {
+    font-size: 1.5em;
+  }
+  
+  body.login-page form label {
+    font-size: 0.9em;
+  }
+  
+  body.login-page form input[type="text"],
+  body.login-page form input[type="password"] {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+  
+  body.login-page form button {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+/* ========================================
+   CARROSSEL DE IMAGENS
+   ======================================== */
+
+/* Container principal do carrossel */
+.carousel {
+  max-width: 900px;
+  margin: 6vh auto 30px; /* sobe o carrossel um pouco para alinhar visualmente com os brasões */
+  background: url('img/img_Escola_01.jpeg') no-repeat center center; /* fundo do carrossel */
+  background-size: cover;
+}
+
+/* Garantir transparência em todos os níveis do carrossel */
+.carousel-inner,
+.carousel-item {
+  background: transparent;
+}
+
+/* Imagens do carrossel com altura fixa */
+.carousel-item img {
+  height: 1100px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+/* Container de conteúdo principal */
+.content {
+  position: relative;
+  min-height: 0;
+  padding: 20px 0;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+/* Faz o conteúdo principal ocupar o espaço e empurra o footer para baixo */
+body.index-page .content {
+  flex: 1 0 auto;
+}
+
+/* ========================================
+   BRASÕES DE SÃO GONÇALO
+   ======================================== */
+
+/* Brasões fixos nas laterais, sempre centralizados verticalmente */
+.brasao {
+  width: 180px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* evita bloquear interações */
+}
+
+/* Brasão da esquerda */
+.brasao-left {
+  left: 30px;
+}
+
+/* Brasão da direita */
+.brasao-right {
+  right: 30px;
+}
+
+/* ========================================
+   RESPONSIVIDADE - GERAL
+   ======================================== */
+
+/* Ajustes para tablets e dispositivos móveis */
+@media (max-width: 768px) {
+  .brasao {
+    width: 80px; /* Tamanho menor em telas pequenas */
+  }
+  .brasao-left { left: 12px; }
+  .brasao-right { right: 12px; }
+  .carousel-item img { height: 400px; }
+  
+  /* Ajustes de responsividade para navbar */
+  .navbar .nav-link {
+    font-size: 18px;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 18px;
+  }
+  
+  .navbar .btn {
+    font-size: 16px;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .navbar .form-control {
+    font-size: 16px;
+  }
+  
+  .navbar .form-control::placeholder {
+    font-size: 16px;
+  }
+  
+  /* Footer responsivo */
+  footer h3 {
+    font-size: 24px;
+  }
+  
+  footer a {
+    font-size: 16px;
+  }
+  
+  /* Carrossel responsivo */
+  .carousel {
+    max-width: 95%;
+    margin: 3vh auto 20px;
+  }
+}
+
+/* Ajustes para tablets (769px - 992px) */
+@media (max-width: 992px) and (min-width: 769px) {
+  .navbar .nav-link {
+    font-size: 24px;
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 24px;
+  }
+  
+  .navbar .btn {
+    font-size: 20px;
+  }
+  
+  .navbar .form-control::placeholder {
+    font-size: 20px;
+  }
+  
+  footer h3 {
+    font-size: 40px;
+  }
+  
+  footer a {
+    font-size: 20px;
+  }
+  
+  .carousel {
+    max-width: 85%;
+  }
+}
+
+/* Ajustes para dispositivos móveis pequenos (≤480px) */
+@media (max-width: 480px) {
+  .navbar .nav-link {
+    font-size: 14px;
+    padding: 0.2rem 0.3rem;
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 14px;
+  }
+  
+  .navbar .btn {
+    font-size: 12px;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .navbar .form-control {
+    font-size: 14px;
+  }
+  
+  .navbar .form-control::placeholder {
+    font-size: 14px;
+  }
+  
+  footer h3 {
+    font-size: 18px;
+  }
+  
+  footer a {
+    font-size: 12px;
+  }
+  
+  .carousel {
+    max-width: 98%;
+    margin: 2vh auto 15px;
+  }
+  
+  .carousel-item img {
+    height: 250px;
+  }
+  
+  /* Brasões ainda menores em telas muito pequenas */
+  .brasao {
+    width: 60px;
+  }
+  .brasao-left { left: 8px; }
+  .brasao-right { right: 8px; }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+/* Container principal do footer */
+footer {
+  background-color: lightblue;
+  padding: 10px 10px;
+  text-align: center;
+  color: black;
+  font-size: 12px; /* tamanho base do footer */
+}
+
+/* Título principal do footer */
+footer h3 {
+  font-style: italic;
+  font-size: 60px;
+  margin: 0 0 8px 0;
+}
+
+/* Links do footer */
+footer a {
+  color: black;
+  font-style: italic;
+  text-decoration: none; /* opcional: remove o sublinhado */
+  font-size: 30px;
+}
+
+/* Mantém os links pretos mesmo após serem visitados */
+footer a:visited {
+  font-style: italic;
+  color: black;
+  font-size: 30px;
+}
+
+/* Efeito hover nos links do footer */
+footer a:hover {
+  font-style: italic;
+  text-decoration: underline;
+}
+footer .col-12 {
+  font-size: 20px;
+}
+
+/* Ajusta também as colunas médias no footer */
+footer .col-md-6 {
+  font-size: 40px;
+}
+
+/* ========================================
+   NAVBAR (BARRA DE NAVEGAÇÃO)
+   ======================================== */
+
+/* Links de navegação da navbar */
+.navbar .nav-link {
+  font-style: italic;
+  font-size: 30px; /* tamanho do texto do menu */
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+/* Logo/marca da navbar */
+.navbar .navbar-brand {
+  font-style: italic;
+  font-size: 30px;
+}
+
+/* Botões da navbar */
+.navbar .btn {
+  font-style: italic;
+  font-size: 30px;
+}
+
+/* Placeholder do campo de busca da navbar */
+.navbar .form-control::placeholder {
+  font-style: italic;
+  font-size: 30px;
+}
+
+/* Suporte adicional para diferentes navegadores */
+.navbar .form-control::-webkit-input-placeholder { /* Chrome/Safari */
+  font-style: italic;
+  font-size: 30px;
+}
+.navbar .form-control:-ms-input-placeholder { /* IE 10+ */
+  font-style: italic;
+  font-size: 30px;
+}
+.navbar .form-control::-ms-input-placeholder { /* Edge legado */
+  font-style: italic;
+  font-size: 30px;
+}
+
+/* Aparência moderna do navbar */
+.navbar-modern {
+  background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 60%);
+  backdrop-filter: blur(6px);
+}
+
+/* Marca (logo + texto) */
+.navbar-modern .brand-logo {
+  height: 48px;
+  width: auto;
+  border-radius: 8px;
+}
+
+.navbar-modern .brand-text {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+/* Links com indicador sutil no hover/active */
+.navbar-modern .nav-link {
+  position: relative;
+}
+
+.navbar-modern .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.2rem;
+  height: 2px;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-modern .nav-link:hover::after,
+.navbar-modern .nav-link.active::after {
+  background: #198754; /* verde Bootstrap */
+}
+
+/* Campo de busca em pílula */
+.navbar-modern .search-pill .form-control {
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+
+.navbar-modern .search-pill .btn {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+/* ========================================
+   FOOTER MODERNO
+   ======================================== */
+.footer-modern {
+  background: linear-gradient(180deg, rgba(227,242,253,0.9), #ffffff);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: #111;
+  margin-top: auto;      /* garante que fique no rodapé quando o conteúdo for curto */
+  flex-shrink: 0;        /* evita encolher em layouts flex */
+}
+
+.footer-modern .footer-title {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.footer-modern .contatos-email .divider {
+  opacity: 0.5;
+  margin: 0 4px;
+}
+
+.footer-modern a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-modern a:hover {
+  text-decoration: underline;
+}
+
+/* Tamanho dos botões de links institucionais no footer */
+.footer-modern .social .btn {
+  font-size: 20px;
+}
+
+/* Itens do dropdown "Conteúdo" maiores para leitura */
+.navbar .dropdown-menu .dropdown-item {
+  font-size: 20px;
+}
+
+/* Modais: aumentar títulos e caixa de informação */
+.modal-content {
+  font-size: 20px;            /* texto do conteúdo */
+}
+.modal-content .modal-title {
+  font-size: 2rem;            /* título maior */
+}
+.modal-content .modal-body {
+  padding: 1.75rem 2rem;      /* caixa de informação mais espaçosa */
+  line-height: 1.6;
+}
+
+/* Tamanho de fonte dos modais */
+.modal-content {
+  font-size: 20px;
+}
+
