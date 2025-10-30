@@ -24,6 +24,12 @@ body.index-page::before {
   z-index: -1;
 }
 
+/* Imagens fluidas por padrão (evita overflow em telas menores) */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Background da página de login com imagem diferente da escola */
 body.login-page {
   background: url('img/img_Escola_02.jpeg') no-repeat center center fixed;
@@ -341,6 +347,18 @@ body.index-page .content {
   .navbar .form-control::placeholder {
     font-size: 16px;
   }
+
+  /* Campo de busca ocupar a largura total no mobile */
+  .navbar .search-pill {
+    width: 100%;
+  }
+  .navbar .search-pill .input-group,
+  .navbar .input-group {
+    width: 100%;
+  }
+  .navbar .search-pill .form-control {
+    min-width: 0;
+  }
   
   /* Footer responsivo */
   footer h3 {
@@ -436,6 +454,11 @@ body.index-page .content {
   }
   .brasao-left { left: 8px; }
   .brasao-right { right: 8px; }
+
+  /* Evita sobreposição dos brasões no conteúdo em telas muito pequenas */
+  .brasao {
+    display: none;
+  }
 }
 
 /* ========================================
