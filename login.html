@@ -1,43 +1,76 @@
 <!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
+
 <html lang="pt-BR">
+<!-- Início do documento HTML, com idioma definido como português do Brasil -->
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Define o padrão de caracteres para UTF-8 (suporta acentuação e caracteres especiais) -->
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Faz o site se ajustar automaticamente a diferentes tamanhos de tela (responsivo) -->
+
+  <title>Login</title>
+  <!-- Título da aba do navegador -->
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Conecta o arquivo CSS externo (style.css), que contém o design e os estilos visuais da página -->
 </head>
 
 <body class="login-page">
+  <!-- Corpo do site, com a classe "login-page" usada para aplicar estilos específicos da tela de login -->
+
   <main class="container content">
+    <!-- Área principal do conteúdo da página -->
+
+    <!-- Imagem do brasão de São Gonçalo do lado esquerdo -->
     <img src="img/Bras_SG_01.png" alt="Brasão de São Gonçalo" class="brasao brasao-left">
+
+    <!-- Imagem do brasão de São Gonçalo do lado direito -->
     <img src="img/Bras_SG_01.png" alt="Brasão de São Gonçalo" class="brasao brasao-right">
   </main>
 
   <form action="/action_page.php" method="post">
+    <!-- Início do formulário de login. 
+         'action' indica para onde os dados serão enviados e 'method="post"' envia os dados de forma segura. -->
+
     <div class="imgcontainer">
+      <!-- Div que contém a logo da escola -->
       <img src="img/Logo_esc_Zumira.png" alt="Logo SENAI" width="120" height="60" class="d-inline-block align-text-top">
+      <!-- Exibe o logo da escola (ou instituição) -->
     </div>
 
     <h2>Login</h2>
+    <!-- Título principal do formulário -->
 
     <div class="container">
+      <!-- Container que agrupa os campos de entrada e botões -->
+
+      <!-- Campo de texto para o nome de usuário -->
       <label for="uname"><b>Usuário</b></label>
       <input type="text" placeholder="Digite seu usuário" name="uname" required>
 
+      <!-- Campo de senha -->
       <label for="psw"><b>Senha</b></label>
       <input type="password" placeholder="Digite sua senha" name="psw" required>
           
+      <!-- Botão principal para enviar o formulário -->
       <button type="submit">Entrar</button>
+
+      <!-- Checkbox para lembrar o login -->
       <label>
         <input type="checkbox" checked="checked" name="remember"> Lembrar-me
       </label>
 
-      <!-- Botão que retorna à página inicial -->
+      <!-- Botão que redireciona de volta para a página inicial -->
       <button type="button" class="cancelbtn" onclick="window.location.href='index.html'">Voltar</button>
+
+      <!-- Link para recuperação de senha -->
       <span class="psw">Esqueceu a <a href="#">senha?</a></span>
     </div>
   </form>
 
 </body>
 </html>
+<!-- Fim do documento HTML -->
