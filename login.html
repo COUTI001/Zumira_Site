@@ -1,76 +1,407 @@
 <!DOCTYPE html>
-<!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Cadastro Interativo</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Estilos CSS -->
+    <style>
+      /* --- CORREÇÕES E ESTILOS GERAIS --- */
+      * {
+        box-sizing: border-box;
+      }
+      /* Body com fundo da imagem da escola */
+      body {
+        background: url('img/img_Escola_02.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-<html lang="pt-BR">
-<!-- Início do documento HTML, com idioma definido como português do Brasil -->
+      /* Título */
+      #title {
+        font-weight: bold;
+        margin: 0;
+        font-size: 60px;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <!-- Define o padrão de caracteres para UTF-8 (suporta acentuação e caracteres especiais) -->
+      /* Parágrafo */
+      p {
+        font-size: 40px;
+        margin: 20px 0 30px;
+      }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Faz o site se ajustar automaticamente a diferentes tamanhos de tela (responsivo) -->
+      /* Span */
+      span {
+        font-size: 40px;
+      }
 
-  <title>Login</title>
-  <!-- Título da aba do navegador -->
+      /* Link */
+      a {
+        color: #4A00E0;
+        font-size: 40px;
+        text-decoration: none;
+        margin: 15px 0;
+      }
 
-  <link rel="stylesheet" href="style.css">
-  <!-- Conecta o arquivo CSS externo (style.css), que contém o design e os estilos visuais da página -->
-</head>
+      /* Botão */
+      button {
+        border-radius: 50px;
+        border: 1px solid #4A00E0;
+        background-color: #4A00E0;
+        color: #FFFFFF;
+        font-size: 40px;
+        font-weight: bold;
+        padding: 20px 60px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+      }
 
-<body class="login-page">
-  <!-- Corpo do site, com a classe "login-page" usada para aplicar estilos específicos da tela de login -->
+      /* Botão ativo */
+      button:active {
+        transform: scale(0.95);
+      }
 
-  <main class="container content">
-    <!-- Área principal do conteúdo da página -->
+      /* Botão focado */
+      button:focus {
+        outline: none;
+      }
 
-    <!-- Imagem do brasão de São Gonçalo do lado esquerdo -->
-    <img src="img/Bras_SG_01.png" alt="Brasão de São Gonçalo" class="brasao brasao-left">
+      /* Botão ghost */
+      button.ghost {
+        background-color: transparent;
+        border-color: #FFFFFF;
+      }
 
-    <!-- Imagem do brasão de São Gonçalo do lado direito -->
-    <img src="img/Bras_SG_01.png" alt="Brasão de São Gonçalo" class="brasao brasao-right">
-  </main>
+      .return-wrapper {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+      }
 
-  <form action="/action_page.php" method="post">
-    <!-- Início do formulário de login. 
-         'action' indica para onde os dados serão enviados e 'method="post"' envia os dados de forma segura. -->
+      .return-btn {
+        border-radius: 50px;
+        border: 1px solid #4A00E0;
+        background-color: #4A00E0;
+        color: #FFFFFF;
+        font-size: 40px;
+        font-weight: bold;
+        padding: 20px 60px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        cursor: pointer;
+      }
 
-    <div class="imgcontainer">
-      <!-- Div que contém a logo da escola -->
-      <img src="img/Logo_esc_Zumira.png" alt="Logo SENAI" width="120" height="60" class="d-inline-block align-text-top">
-      <!-- Exibe o logo da escola (ou instituição) -->
+      /* Formulário */
+      form {
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px 70px;
+        height: 100%;
+        text-align: center;
+      }
+
+      /* Input */
+      input {
+        background-color: #eee; /* Corrigido de #DDDDDD para uma cor mais padrão */
+        border: none;
+        border-radius: 50px;
+        padding: 28px 35px;
+        margin: 8px 0;
+        width: 100%;
+        font-size: 40px;
+        height: 90px;
+        line-height: 1.1;
+      }
+      
+      /* CORREÇÃO NO HTML: Removido <label> desnecessária para inputs */
+      .input-wrapper { /* Novo wrapper para centralizar inputs */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* --- ESTRUTURA E ANIMAÇÃO --- */
+      .container {
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+                    0 10px 10px rgba(0,0,0,0.22); /* Sombreamento mais padrão */
+        position: relative;
+        overflow: hidden;
+        width: 90%;
+        max-width: 100%;
+        min-height: 820px;
+      }
+/* Formulário */
+      .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+      }
+/* Formulário de login */
+      .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+      }
+/* Formulário de login ativo */
+      .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+      }
+/* Formulário de cadastro */
+      .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+      }
+/* Formulário de cadastro ativo */
+      .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+      }
+
+      @keyframes show {
+        0%, 49.99% {
+          opacity: 0;
+          z-index: 1;
+        }
+        
+        50%, 100% {
+          opacity: 1;
+          z-index: 5;
+        }
+      }
+
+      /* Overlay container */
+      .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+      }
+
+      /* Overlay container ativo */
+      .container.right-panel-active .overlay-container{
+        transform: translateX(-100%);
+      }
+
+      /* Overlay */
+      .overlay {
+        /* Corrigido gradiente para um mais vibrante */
+        background: linear-gradient(to right, #FF4B2B, #FF416C); 
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #FFFFFF;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+
+      /* Overlay ativo */
+      .container.right-panel-active .overlay {
+          transform: translateX(50%);
+      }
+
+      /* Overlay panel */
+      .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+      }
+
+      /* Overlay panel esquerdo */
+      .overlay-left {
+        transform: translateX(-20%);
+      }
+
+      /* Overlay panel esquerdo ativo */
+      .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+      }
+
+      /* Overlay panel direito */
+        .overlay-right {
+        right: 0;
+        transform: translateX(0);
+      }
+
+      .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+      }
+
+      /* --- ESTILOS SOCIAIS E RESPONSIVIDADE --- */
+      .social-container {
+        margin: 20px 0;
+      }
+
+      /* Social container i */
+        /* Social container ícone */
+        .social-container i {
+        font-size: 20px; /* Ajustado para um tamanho mais comum */
+        color: #333; /* Cor padrão para ícones */
+      }
+      
+      /* Estiliza o ícone dentro do link quando o mouse está sobre ele */
+      /* Social container ícone ativo */
+      .social-container a:hover i {
+          color: #4A00E0; 
+      }
+      /* Social container ativo */  
+      /* Social container link */
+      .social-container a {
+        border: 1px solid #DDDDDD;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        height: 40px;
+        width: 40px;
+        transition: border-color 0.3s ease;
+      }
+      
+      /* CORREÇÃO: Media Query CSS */
+      @media (max-width: 768px) {
+        /* Container ativo */
+          .container {
+              width: 95%;
+              min-height: 550px; /* Aumenta um pouco a altura para acomodar conteúdo em telas menores */
+              /* A animação double slider pode não ser ideal em telas muito pequenas, o ideal seria mudar para um layout de abas */
+          }
+        }
+    </style>
+  </head>
+  
+  <body>
+    <div class="container" id="container">
+      
+      <!-- Formulário de cadastro -->
+      <div class="form-container sign-up-container">
+       <form action="#">
+        <h1 id="title">Criar Conta</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social"><i class="fab fa-google"></i></a>
+        </div>
+        <span>Ou use seu e-mail para registro</span>
+        
+        <input type="text" placeholder="Nome" name="name" required />
+        <input type="email" placeholder="Email" name="email" required />
+        <input type="password" placeholder="Senha" name="password" required />
+        
+        <button>Cadastrar</button>
+      </form>
     </div>
-
-    <h2>Login</h2>
-    <!-- Título principal do formulário -->
-
-    <div class="container">
-      <!-- Container que agrupa os campos de entrada e botões -->
-
-      <!-- Campo de texto para o nome de usuário -->
-      <label for="uname"><b>Usuário</b></label>
-      <input type="text" placeholder="Digite seu usuário" name="uname" required>
-
-      <!-- Campo de senha -->
-      <label for="psw"><b>Senha</b></label>
-      <input type="password" placeholder="Digite sua senha" name="psw" required>
+      
+      <!-- Formulário de login -->
+    <div class="form-container sign-in-container">
+       <form action="#">
+      <h1 id="title">Entrar</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social"><i class="fab fa-google"></i></a>
+      </div>
+      <span>Ou use sua conta</span>
+      
+      <input type="email" placeholder="Email" name="email" id="login-email" required />
+      <input type="password" placeholder="Senha" name="password" id="login-password" required />
+      
+      <a href="#">Esqueceu sua senha?</a>
+      <button>Entrar</button>
+    </form>
+    </div>
+      
+      <!-- Overlay container -->
+      <div class="overlay-container">
+        <div class="overlay">
           
-      <!-- Botão principal para enviar o formulário -->
-      <button type="submit">Entrar</button>
+          <!-- Overlay panel esquerdo -->
+          <div class="overlay-panel overlay-left">
+            <h1 id="title">Bem-vindo!</h1>
+            <p>Se você já tem uma conta, clique abaixo para fazer login.</p>
+            <button class="ghost" id="signIn">Entrar</button>
+          </div>
+          
+          <!-- Overlay panel direito -->
+          <div class="overlay-panel overlay-right">
+            <h1 id="title">Olá!</h1>
+            <p>Insira seus dados pessoais e comece sua jornada conosco!</p>
+            <button class="ghost" id="signUp">Cadastrar</button>
+          </div>         
 
-      <!-- Checkbox para lembrar o login -->
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Lembrar-me
-      </label>
-
-      <!-- Botão que redireciona de volta para a página inicial -->
-      <button type="button" class="cancelbtn" onclick="window.location.href='index.html'">Voltar</button>
-
-      <!-- Link para recuperação de senha -->
-      <span class="psw">Esqueceu a <a href="#">senha?</a></span>
+        </div>
+      </div>
     </div>
-  </form>
+    <!-- Botão de retorno à página principal -->
+    <div class="return-wrapper">
+      <button type="button" class="return-btn" onclick="window.location.href='index.html'">
+        Retornar à Página Principal
+      </button>
+    </div>
 
-</body>
+<script>
+  /* Captura os botões e o container principal */
+/* Botão de cadastro */
+  /* Botão de cadastro */
+  const signUpButton = document.getElementById('signUp'); /* Botão de cadastro */
+/* Botão de login */
+  /* Botão de login */
+  const signInButton = document.getElementById('signIn'); /* Botão de login */
+/* Container principal */
+  /* Container principal */
+  const container = document.getElementById('container'); /* Container principal */
+
+/* Quando clicar no botão 'Cadastrar' (no overlay) */
+  /* Quando clicar no botão 'Cadastrar' (no overlay) */
+  signUpButton.addEventListener('click', () => {
+  /* Adiciona a classe que ativa a animação de deslizamento para a direita */
+  container.classList.add("right-panel-active");
+});
+
+/* Quando clicar no botão 'Entrar' (no overlay) */
+signInButton.addEventListener('click', () => {
+  /* Remove a classe para retornar à posição inicial (painel de login) */
+  container.classList.remove("right-panel-active");
+});
+</script>
+
+  </body>
 </html>
-<!-- Fim do documento HTML -->
