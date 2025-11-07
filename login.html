@@ -30,24 +30,24 @@
       #title {
         font-weight: bold;
         margin: 0;
-        font-size: 60px;
+        font-size: 35px;
       }
 
       /* Parágrafo */
       p {
-        font-size: 40px;
-        margin: 20px 0 30px;
+        font-size: 35px;
+        margin: 15px 0 20px;
       }
 
       /* Span */
       span {
-        font-size: 40px;
+        font-size: 35px;
       }
 
       /* Link */
       a {
         color: #4A00E0;
-        font-size: 40px;
+        font-size: 35px;
         text-decoration: none;
         margin: 15px 0;
       }
@@ -58,9 +58,9 @@
         border: 1px solid #4A00E0;
         background-color: #4A00E0;
         color: #FFFFFF;
-        font-size: 40px;
+        font-size: 25px;
         font-weight: bold;
-        padding: 20px 60px;
+        padding: 15px 40px;
         letter-spacing: 1px;
         text-transform: uppercase;
         transition: transform 80ms ease-in;
@@ -83,17 +83,17 @@
       }
 
       .return-wrapper {
-        margin-top: 30px;
+        margin-top: 15px;
         display: flex;
         justify-content: center;
       }
-
+     
       .return-btn {
         border-radius: 50px;
         border: 1px solid #4A00E0;
         background-color: #4A00E0;
         color: #FFFFFF;
-        font-size: 40px;
+        font-size: 25px;
         font-weight: bold;
         padding: 20px 60px;
         letter-spacing: 1px;
@@ -109,43 +109,46 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: 40px 70px;
+        padding: 40px 80px;
         height: 100%;
         text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 20px 45px rgba(0,0,0,0.2);
       }
 
       /* Input */
       input {
-        background-color: #eee; /* Corrigido de #DDDDDD para uma cor mais padrão */
+        background-color: #eee;
         border: none;
-        border-radius: 50px;
-        padding: 28px 35px;
-        margin: 8px 0;
+        border-radius: 40px;
+        padding: 18px 28px;
+        margin: 10px 0;
         width: 100%;
-        font-size: 40px;
-        height: 90px;
-        line-height: 1.1;
+        max-width: 460px;
+        font-size: 25px;
+        height: auto;
+        line-height: 1.2;
       }
       
       /* CORREÇÃO NO HTML: Removido <label> desnecessária para inputs */
-      .input-wrapper { /* Novo wrapper para centralizar inputs */
+      .input-wrapper {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
       }
 
       /* --- ESTRUTURA E ANIMAÇÃO --- */
       .container {
         background-color: #FFFFFF;
-        border-radius: 10px;
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-                    0 10px 10px rgba(0,0,0,0.22); /* Sombreamento mais padrão */
+        border-radius: 18px;
+        box-shadow: 0 32px 60px rgba(0,0,0,0.25);
         position: relative;
         overflow: hidden;
-        width: 90%;
-        max-width: 100%;
-        min-height: 820px;
+        width: 85%;
+        max-width: 1100px;
+        min-height: 760px;
       }
 /* Formulário */
       .form-container {

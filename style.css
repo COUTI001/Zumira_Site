@@ -374,7 +374,7 @@ footer {
 /* Título principal do footer */
 footer h3 {
   font-style: italic;
-  font-size: 60px;
+  font-size: 36px;
   margin: 0 0 8px 0;
 }
 
@@ -383,14 +383,14 @@ footer a {
   color: black;
   font-style: italic;
   text-decoration: none; /* opcional: remove o sublinhado */
-  font-size: 30px;
+  font-size: 18px;
 }
 
 /* Mantém os links pretos mesmo após serem visitados */
 footer a:visited {
   font-style: italic;
   color: black;
-  font-size: 30px;
+  font-size: 18px;
 }
 
 /* Efeito hover nos links do footer */
@@ -399,12 +399,12 @@ footer a:hover {
   text-decoration: underline;
 }
 footer .col-12 {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 /* Ajusta também as colunas médias no footer */
 footer .col-md-6 {
-  font-size: 40px;
+  font-size: 20px;
 }
 
 /* ========================================
@@ -414,7 +414,7 @@ footer .col-md-6 {
 /* Links de navegação da navbar */
 .navbar .nav-link {
   font-style: italic;
-  font-size: 30px; /* tamanho do texto do menu */
+  font-size: 22px; /* tamanho do texto do menu */
   padding-left: 0.6rem;
   padding-right: 0.6rem;
 }
@@ -422,19 +422,19 @@ footer .col-md-6 {
 /* Logo/marca da navbar */
 .navbar .navbar-brand {
   font-style: italic;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 /* Botões da navbar */
 .navbar .btn {
   font-style: italic;
-  font-size: 30px;
+  font-size: 22px;
 }
 
 /* Placeholder do campo de busca da navbar */
 .navbar .form-control::placeholder {
   font-style: italic;
-  font-size: 30px;
+  font-size: 22px;
 }
 
 /* Suporte adicional para diferentes navegadores */
@@ -504,6 +504,7 @@ footer .col-md-6 {
 /* ========================================
    FOOTER MODERNO
    ======================================== */
+/* Container do footer */
 .footer-modern {
   background: linear-gradient(180deg, rgba(227,242,253,0.9), #ffffff);
   border-top: 1px solid rgba(0,0,0,0.06);
@@ -511,29 +512,56 @@ footer .col-md-6 {
   margin-top: auto;      /* garante que fique no rodapé quando o conteúdo for curto */
   flex-shrink: 0;        /* evita encolher em layouts flex */
 }
-
+/* Título do footer */
 .footer-modern .footer-title {
   font-style: italic;
   font-weight: 700;
   font-size: 2rem;
   margin: 0;
 }
-
+/* Divisor entre os e-mails */
 .footer-modern .contatos-email .divider {
   opacity: 0.5;
   margin: 0 4px;
 }
+/* E-mails do footer */
+.footer-modern .contatos-email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+/* Links institucionais do footer */
+.footer-modern .social {
+  display: flex;
+  /* alinhamento horizontal */
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  /* alinhamento horizontal */
+  justify-content: center;
+  /* alinhamento vertical */
+}
+/* Espaçamento entre os elementos */
+.footer-modern .row.align-items-center {
+  /* espaçamento entre os elementos */
+  row-gap: 0.55rem;//espaçamento entre os elementos
 
+}
+.footer-modern .link-email {
+  margin: 0;
+}
+/* Links do footer */
 .footer-modern a {
   color: inherit;
   text-decoration: none;
 }
-
+/* Efeito hover nos links do footer */
 .footer-modern a:hover {
   text-decoration: underline;
 }
 
-/* Tamanho dos botões de links institucionais no footer */
+/* Botões de links institucionais no footer */
 .footer-modern .social .btn {
   font-size: 20px;
 }
